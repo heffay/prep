@@ -1,5 +1,5 @@
 using System;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace prep.infrastructure.filtering
 {
@@ -19,7 +19,12 @@ namespace prep.infrastructure.filtering
 
         public IMatchAn<ItemToMatch> equal_to_any(params PropertyType[] values)
         {
-            return new AnonymousMatch<ItemToMatch>(x => values.Contains(accessor(x)));
+            return new AnonymousMatch<ItemToMatch>(x => new List<PropertyType>(values).Contains(accessor(x)));
+        }
+
+        public IMatchAn<ItemToMatch> not_equal_to(PropertyType value)
+        {
+            throw new NotImplementedException();
         }
     }
 }
