@@ -8,5 +8,14 @@ namespace prep.infrastructure
         {
             foreach (var item in items) yield return item;
         }
+
+        public static IEnumerable<T> all_items_matching<T>(this IEnumerable<T> items, Criteria<T> criteria)
+        {
+            foreach (var item in items)
+            {
+                if (criteria(item))
+                    yield return item;
+            }
+        }
     }
 }
