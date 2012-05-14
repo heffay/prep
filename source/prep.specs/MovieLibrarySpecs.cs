@@ -5,6 +5,7 @@ using Machine.Specifications;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 using prep.collections;
+using prep.infrastructure.filtering;
 using prep.specs.utility;
 using prep.infrastructure;
 

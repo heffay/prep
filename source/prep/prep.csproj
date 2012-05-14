@@ -64,10 +64,12 @@
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlyList.cs" />
-    <Compile Include="collections\Where.cs" />
+    <Compile Include="collections\FuncExtensions.cs" />
     <Compile Include="infrastructure\Criteria.cs" />
     <Compile Include="infrastructure\EnumerableExtensions.cs" />
+    <Compile Include="infrastructure\filtering\AnonymousMatch.cs" />
     <Compile Include="infrastructure\filtering\MatchExtensions.cs" />
+    <Compile Include="infrastructure\filtering\Where.cs" />
     <Compile Include="infrastructure\IMatchAn.cs" />
     <Compile Include="infrastructure\OrMatch.cs" />
   </ItemGroup>
