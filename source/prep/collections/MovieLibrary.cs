@@ -30,11 +30,10 @@ namespace prep.collections
             return movies.Contains(movie);
         }
 
-        public delegate bool MovieCriteria(Movie movie);
 
-        public IEnumerable<Movie> all_movies_matching(MovieCriteria movie_criteria)
+        public IEnumerable<Movie> all_movies_matching(Criteria<Movie> criteria)
         {
-            return movies.all_items_matching(x=> movie_criteria.Invoke(x));
+            return movies.all_items_matching(criteria);
         }
 
         public IEnumerable<Movie> all_movies_published_by_pixar()

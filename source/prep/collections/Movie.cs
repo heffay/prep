@@ -1,4 +1,6 @@
 using System;
+using prep.infrastructure;
+using prep.infrastructure.filtering;
 
 namespace prep.collections
 {
@@ -20,6 +22,20 @@ namespace prep.collections
             if (other == null) return false;
 
             return ReferenceEquals(this,other) || this.title == other.title; 
+        }
+
+        public static IMatchAn<Movie> is_in_genre(Genre genre)
+        {
+            return new IsInGenre(genre);
+        }
+        public static IMatchAn<Movie> is_published_by(ProductionStudio studio)
+        {
+            return new IsPublishedBy(studio);
+        }
+
+        public static IMatchAn<Movie> is_published_by_pixar_or_disney()
+        {
+            return is_published_by(ProductionStudio.Pixar).or(is_published_by(ProductionStudio.Disney));
         }
     }
 }
