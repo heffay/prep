@@ -34,7 +34,7 @@ namespace prep.collections
 
         public IEnumerable<Movie> all_movies_matching(MovieCriteria movie_criteria)
         {
-            return movies.all_items_matching(movie_criteria);
+            return movies.all_items_matching(x=> movie_criteria.Invoke(x));
         }
 
         public IEnumerable<Movie> all_movies_published_by_pixar()
