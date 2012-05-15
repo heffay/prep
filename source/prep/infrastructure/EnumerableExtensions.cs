@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using prep.infrastructure.filtering;
+using prep.infrastructure.ordering;
 
 namespace prep.infrastructure
 {
@@ -29,6 +30,18 @@ namespace prep.infrastructure
             , Func<ItemToMatch, PropertyType> accessor)
         {
             return new IterationExtensionPoint<ItemToMatch, PropertyType>(items,Where<ItemToMatch>.has_a(accessor));
+        }
+
+        public static IEnumerable<ItemToSort> order<ItemToSort,PropertyType>(this IEnumerable<ItemToSort> items,
+            Func<ItemToSort, PropertyType> accessor) where PropertyType: IComparable{
+            
+            List<ItemToSort> list = new List<ItemToSort>(items);
+            list.Sort(new GenericComparer<ItemToSort,PropertyType>(accessor));
+            
+            
+            foreach (var itemToSort in list){
+                yield return itemToSort;
+            }
         }
     }
 }

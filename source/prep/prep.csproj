@@ -72,6 +72,10 @@
     <Compile Include="infrastructure\filtering\MatchingExtensionPoint.cs" />
     <Compile Include="infrastructure\filtering\MatchingExtensions.cs" />
     <Compile Include="infrastructure\filtering\IterationExtensionPoint.cs" />
+    <Compile Include="infrastructure\ordering\GenericComparer.cs" />
+    <Compile Include="infrastructure\ordering\IProvideAccessToComparers.cs" />
+    <Compile Include="infrastructure\ordering\OrderBy.cs" />
+    <Compile Include="infrastructure\ordering\StudioRatingsComparer.cs" />
     <Compile Include="infrastructure\Range.cs" />
     <Compile Include="infrastructure\RangeBoundary.cs" />
     <Compile Include="infrastructure\ranges\IContainValues.cs" />
