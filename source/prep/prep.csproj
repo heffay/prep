@@ -71,6 +71,8 @@
     <Compile Include="infrastructure\filtering\IProvideAccessToCreatingMatchers.cs" />
     <Compile Include="infrastructure\filtering\MatchingExtensionPoint.cs" />
     <Compile Include="infrastructure\filtering\MatchingExtensions.cs" />
+    <Compile Include="infrastructure\filtering\MovieIterationExtension.cs" />
+    <Compile Include="infrastructure\filtering\MovieIterationExtensionPoint.cs" />
     <Compile Include="infrastructure\Range.cs" />
     <Compile Include="infrastructure\RangeBoundary.cs" />
     <Compile Include="infrastructure\ranges\IContainValues.cs" />
