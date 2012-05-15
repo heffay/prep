@@ -1,7 +1,7 @@
 namespace prep.infrastructure.filtering
 {
-    public interface IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType>
+    public interface IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType,ReturnType>
     {
-        IMatchAn<ItemToMatch> create_using(IMatchAn<PropertyType> real_criteria);
+        ReturnType create_using(IMatchAn<PropertyType> real_criteria);
     }
 }

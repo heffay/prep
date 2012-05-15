@@ -3,11 +3,11 @@ using System;
 namespace prep.infrastructure.filtering
 {
     public class NegatingMatchExtensionPoint<ItemToMatch, PropertyType> :
-        IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType>
+        IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType,IMatchAn<ItemToMatch>>
     {
-        IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType> original;
+        IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType,IMatchAn<ItemToMatch>> original;
 
-        public NegatingMatchExtensionPoint(IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType> original)
+        public NegatingMatchExtensionPoint(IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType,IMatchAn<ItemToMatch>> original)
         {
             this.original = original;
         }
@@ -18,7 +18,7 @@ namespace prep.infrastructure.filtering
         }
     }
 
-    public class MatchingExtensionPoint<ItemToMatch,PropertyType> : IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType>
+    public class MatchingExtensionPoint<ItemToMatch,PropertyType> : IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType,IMatchAn<ItemToMatch>>
     {
         Func<ItemToMatch, PropertyType> accessor;
 
@@ -27,7 +27,7 @@ namespace prep.infrastructure.filtering
             this.accessor = accessor;
         }
 
-        public IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType> not
+        public IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType,IMatchAn<ItemToMatch>> not
         {
             get
             {

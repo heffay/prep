@@ -209,43 +209,38 @@ namespace prep.specs
 
             It should_be_able_to_find_all_movies_not_published_by_pixar = () =>
             {
-                var criteria = Where<Movie>.has_a(x => x.production_studio).not.equal_to(ProductionStudio.Pixar);
+                var results = sut.all_movies().where(x => x.production_studio).not.equal_to(ProductionStudio.Pixar);
 
 
-                var results = sut.all_movies().all_items_matching(criteria);
 
                 results.ShouldNotContain(cars, a_bugs_life);
             };
 
             It should_be_able_to_find_all_movies_published_after_a_certain_year = () =>
             {
-                var criteria = Where<Movie>.has_a(x => x.date_published.Year).greater_than(2004);
+                var results = sut.all_movies().where(x => x.date_published.Year).greater_than(2004);
 
-                var results = sut.all_movies().all_items_matching(criteria);
 
                 results.ShouldContainOnly(the_ring, shrek, theres_something_about_mary);
             };
 
             It should_be_able_to_find_all_movies_published_between_a_certain_range_of_years = () =>
             {
-                var criteria = Where<Movie>.has_a(x => x.date_published).between(1982,2003);
-                var results = sut.all_movies().all_items_matching(criteria);
+                var results = sut.all_movies().where(x => x.date_published).between(1982,2003);
 
                 results.ShouldContainOnly(indiana_jones_and_the_temple_of_doom, a_bugs_life, pirates_of_the_carribean);
             };
 
             It should_be_able_to_find_all_kid_movies = () =>
             {
-                var criteria = Where<Movie>.has_a(x => x.genre).equal_to_any(Genre.kids);
-                var results = sut.all_movies().all_items_matching(criteria);
+                var results = sut.all_movies().where(x => x.genre).equal_to_any(Genre.kids);
 
                 results.ShouldContainOnly(a_bugs_life, shrek, cars);
             };
 
             It should_be_able_to_find_all_action_movies = () =>
             {
-                var criteria = Where<Movie>.has_a(x => x.genre).equal_to_any(Genre.action);
-                var results = sut.all_movies().all_items_matching(criteria);
+                var results = sut.all_movies().where(x => x.genre).equal_to_any(Genre.action);
 
                 results.ShouldContainOnly(indiana_jones_and_the_temple_of_doom, pirates_of_the_carribean);
             };

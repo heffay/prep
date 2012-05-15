@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using prep.infrastructure.filtering;
 
 namespace prep.infrastructure
 {
@@ -21,6 +23,12 @@ namespace prep.infrastructure
                 if (criteria(item))
                     yield return item;
             }
+        }
+
+        public static IterationExtensionPoint<ItemToMatch, PropertyType> where<ItemToMatch, PropertyType>(this IEnumerable<ItemToMatch> items
+            , Func<ItemToMatch, PropertyType> accessor)
+        {
+            return new IterationExtensionPoint<ItemToMatch, PropertyType>(items,Where<ItemToMatch>.has_a(accessor));
         }
     }
 }
