@@ -1,9 +1,9 @@
 using System;
-using System.Collections.Generic;
 
 namespace prep.infrastructure.filtering
 {
-    public class CriteriaFactory<ItemToMatch, PropertyType> : IEqualityCriteriaFactory<ItemToMatch, PropertyType>, ICreateMatchers<ItemToMatch, PropertyType>
+    public class CriteriaFactory<ItemToMatch, PropertyType> : IEqualityCriteriaFactory<ItemToMatch, PropertyType>,
+                                                              ICreateMatchers<ItemToMatch, PropertyType>
     {
         Func<ItemToMatch, PropertyType> accessor;
 
@@ -19,13 +19,14 @@ namespace prep.infrastructure.filtering
 
         public IMatchAn<ItemToMatch> equal_to_any(params PropertyType[] values)
         {
-            return create_using(x => new List<PropertyType>(values).Contains(accessor(x)));
+            return create_using(new EqualToAny<PropertyType>(values));
         }
 
-        public IMatchAn<ItemToMatch> create_using(Criteria<ItemToMatch> condition)
+        public IMatchAn<ItemToMatch> create_using(IMatchAn<PropertyType> real_criteria)
         {
-            return new AnonymousMatch<ItemToMatch>(condition);
+            return new PropertyMatcher<ItemToMatch, PropertyType>(accessor, real_criteria);
         }
+
 
         public IMatchAn<ItemToMatch> not_equal_to(PropertyType value)
         {

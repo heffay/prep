@@ -1,30 +1,26 @@
 using System;
+using prep.infrastructure.ranges;
 
 namespace prep.infrastructure.filtering
 {
     public class ComparableCriteriaFactory<ItemToMatch, PropertyType> : ICreateMatchers<ItemToMatch, PropertyType>
         where PropertyType : IComparable<PropertyType>
     {
-        Func<ItemToMatch, PropertyType> accessor;
         ICreateMatchers<ItemToMatch, PropertyType> original_criteria_factory;
 
-        public ComparableCriteriaFactory(Func<ItemToMatch, PropertyType> accessor,
-                                         ICreateMatchers<ItemToMatch, PropertyType> original_criteria_factory)
+        public ComparableCriteriaFactory(ICreateMatchers<ItemToMatch, PropertyType> original_criteria_factory)
         {
-            this.accessor = accessor;
             this.original_criteria_factory = original_criteria_factory;
         }
 
         public IMatchAn<ItemToMatch> greater_than(PropertyType value)
         {
-            return original_criteria_factory.create_using(x => accessor(x).CompareTo(value) > 0);
+            return create_using(new FallsInRange<PropertyType>(Range.greater_than(value).inclusive());
         }
 
         public IMatchAn<ItemToMatch> between(PropertyType start, PropertyType end)
         {
-            return
-                original_criteria_factory.create_using(
-                    x => accessor(x).CompareTo(start) >= 0 && accessor(x).CompareTo(end) <= 0);
+            return create_using(new FallsInRange<PropertyType>());
         }
 
         public IMatchAn<ItemToMatch> equal_to(PropertyType value_to_equal)
@@ -37,9 +33,9 @@ namespace prep.infrastructure.filtering
             return original_criteria_factory.equal_to_any(values);
         }
 
-        public IMatchAn<ItemToMatch> create_using(Criteria<ItemToMatch> condition)
+        public IMatchAn<ItemToMatch> create_using(IMatchAn<PropertyType> real_criteria)
         {
-            return original_criteria_factory.create_using(condition);
+            return original_criteria_factory.create_using(real_criteria);
         }
 
         public IMatchAn<ItemToMatch> not_equal_to(PropertyType value)
