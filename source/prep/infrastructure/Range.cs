@@ -40,7 +40,7 @@ namespace prep.infrastructure
                 if(upperBound != null)
                 {
                     return upperBound.contains(value) ||
-                        (lowerResult && value.CompareTo(upperBound.Boundary) < 0 && value.CompareTo(lowerBound.Boundary) > 0);
+                        (lowerResult && value.CompareTo(upperBound.Boundary) < 0);
                 }
                 else
                 {
