@@ -7,9 +7,9 @@
             return new OrMatch<Item>(left, right);
         }
 
-        public static IMatchAn<Item> not<Item>(this IMatchAn<Item> source)
+        public static IMatchAn<Item> not<Item>(this IMatchAn<Item> to_negate)
         {
-            return new NotMatch<Item>(source);
+            return new NegatingMatch<Item>(to_negate);
         }
     }
 
