@@ -40,4 +40,18 @@ namespace prep.infrastructure.filtering
             return new PropertyMatcher<ItemToMatch, PropertyType>(accessor, real_criteria);
         }
     }
+
+    public class EnumerableExtensionPoint<ItemToMatch,PropertyType> : IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType>{
+        IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType> original;
+
+        public EnumerableExtensionPoint( IProvideAccessToCreatingMatchers<ItemToMatch, PropertyType> original )
+        {
+            this.original = original;
+        }
+
+        public IMatchAn<ItemToMatch> create_using(IMatchAn<PropertyType> real_criteria)
+        {
+            return original.create_using(real_criteria).not();
+        }
+    }
 }

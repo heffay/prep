@@ -4,4 +4,6 @@ namespace prep.infrastructure.filtering
     {
         IMatchAn<ItemToMatch> create_using(IMatchAn<PropertyType> real_criteria);
     }
+
+    public interface IProvide
 }
