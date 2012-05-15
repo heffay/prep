@@ -68,6 +68,8 @@
     <Compile Include="infrastructure\filtering\DateMatchingExtensions.cs" />
     <Compile Include="infrastructure\filtering\EqualToAny.cs" />
     <Compile Include="infrastructure\filtering\FallsInRange.cs" />
+    <Compile Include="infrastructure\filtering\InverseMatchingExtensionPoint.cs" />
+    <Compile Include="infrastructure\filtering\InverseMatchingExtensions.cs" />
     <Compile Include="infrastructure\filtering\MatchingExtensionPoint.cs" />
     <Compile Include="infrastructure\filtering\MatchingExtensions.cs" />
     <Compile Include="infrastructure\Range.cs" />

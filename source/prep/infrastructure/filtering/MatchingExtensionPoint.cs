@@ -10,5 +10,10 @@ namespace prep.infrastructure.filtering
         {
             this.accessor = accessor;
         }
+
+        public InverseMatchingExtensionPoint<ItemToMatch, PropertyType> not
+        {
+            get { return new InverseMatchingExtensionPoint<ItemToMatch, PropertyType>(accessor); }
+        }
     }
 }
