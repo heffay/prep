@@ -71,6 +71,8 @@
     <Compile Include="infrastructure\filtering\FallsInRange.cs" />
     <Compile Include="infrastructure\filtering\ICreateMatchers.cs" />
     <Compile Include="infrastructure\filtering\IEqualityCriteriaFactory.cs" />
+    <Compile Include="infrastructure\Range.cs" />
+    <Compile Include="infrastructure\RangeBoundary.cs" />
     <Compile Include="infrastructure\ranges\IContainValues.cs" />
     <Compile Include="infrastructure\ranges\InclusiveRange.cs" />
     <Compile Include="infrastructure\ranges\ExclusiveRangeWithNoUpperBound.cs" />
