@@ -22,11 +22,6 @@ namespace prep.infrastructure.filtering
             return new PropertyMatcher<ItemToMatch, PropertyType>(extension_point.accessor, real_criteria);
         }
 
-        public static IMatchAn<ItemToMatch> not_equal_to<ItemToMatch, PropertyType>(
-            this MatchingExtensionPoint<ItemToMatch, PropertyType> extension_point, PropertyType value)
-        {
-            return equal_to(extension_point, value).not();
-        }
 
         public static IMatchAn<ItemToMatch> greater_than<ItemToMatch, PropertyType>(
             this MatchingExtensionPoint<ItemToMatch, PropertyType> extension_point, PropertyType value) where PropertyType : IComparable<PropertyType>
