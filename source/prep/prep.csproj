@@ -65,12 +65,10 @@
     <Compile Include="collections\FuncExtensions.cs" />
     <Compile Include="infrastructure\Criteria.cs" />
     <Compile Include="infrastructure\EnumerableExtensions.cs" />
-    <Compile Include="infrastructure\filtering\ComparableCriteriaFactory.cs" />
-    <Compile Include="infrastructure\filtering\CriteriaFactory.cs" />
     <Compile Include="infrastructure\filtering\EqualToAny.cs" />
     <Compile Include="infrastructure\filtering\FallsInRange.cs" />
-    <Compile Include="infrastructure\filtering\ICreateMatchers.cs" />
-    <Compile Include="infrastructure\filtering\IEqualityCriteriaFactory.cs" />
+    <Compile Include="infrastructure\filtering\MatchingExtensionPoint.cs" />
+    <Compile Include="infrastructure\filtering\MatchingExtensions.cs" />
     <Compile Include="infrastructure\Range.cs" />
     <Compile Include="infrastructure\RangeBoundary.cs" />
     <Compile Include="infrastructure\ranges\IContainValues.cs" />
