@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 namespace prep.infrastructure.filtering
 {
-    public class CriteriaFactory<ItemToMatch, PropertyType> 
+    public class CriteriaFactory<ItemToMatch, PropertyType> : IEqualityCriteriaFactory<ItemToMatch, PropertyType>
     {
         Func<ItemToMatch, PropertyType> accessor;
+        private readonly AnonymousMatchFactory<ItemToMatch> _anonymousMatchFactory;
 
-        public CriteriaFactory(Func<ItemToMatch, PropertyType> accessor)
+        public CriteriaFactory(Func<ItemToMatch, PropertyType> accessor, AnonymousMatchFactory<ItemToMatch> anonymousMatchFactory)
         {
             this.accessor = accessor;
+            _anonymousMatchFactory = anonymousMatchFactory;
         }
 
         public IMatchAn<ItemToMatch> equal_to(PropertyType value_to_equal)
@@ -19,7 +21,7 @@ namespace prep.infrastructure.filtering
 
         public IMatchAn<ItemToMatch> equal_to_any(params PropertyType[] values)
         {
-            return new AnonymousMatch<ItemToMatch>(x => new List<PropertyType>(values).Contains(accessor(x)));
+            return _anonymousMatchFactory.GetInstance(x => new List<PropertyType>(values).Contains(accessor(x)));
         }
 
         public IMatchAn<ItemToMatch> not_equal_to(PropertyType value)
