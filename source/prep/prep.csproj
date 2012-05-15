@@ -81,6 +81,7 @@
     <Compile Include="infrastructure\IMatchAn.cs" />
     <Compile Include="infrastructure\NegatingMatch.cs" />
     <Compile Include="infrastructure\OrMatch.cs" />
+    <Compile Include="infrastructure\ranges\Range.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

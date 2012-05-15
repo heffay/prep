@@ -6,6 +6,7 @@ using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 using prep.collections;
 using prep.infrastructure.filtering;
+using prep.infrastructure.ranges;
 using prep.specs.utility;
 using prep.infrastructure;
 
@@ -181,6 +182,24 @@ namespace prep.specs
 
             It should_store_only_1_copy_in_the_collection = () =>
                 movie_collection.Count.ShouldEqual(1);
+        }
+
+        public class test_ranges{
+            private static Movie MyMovie = new Movie();
+
+            Establish c = () => {
+                              MyMovie.rating = 11;
+                          };
+
+            private Because b = () => {
+
+                                };
+
+            private It should_work = () => {
+                MyMovie.rating.ShouldEqual(11);
+                GenericRange<int>.Make().greater_than(1).less_than(5).contains(3).ShouldBeTrue();
+                GenericRange<int>.Make().less_than(10).greater_than(1).contains(11).ShouldBeFalse();
+                                     };
         }
 
         public class when_searching_for_movies : concern_for_searching_and_sorting

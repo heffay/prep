@@ -15,12 +15,13 @@ namespace prep.infrastructure.filtering
 
         public IMatchAn<ItemToMatch> greater_than(PropertyType value)
         {
-            return create_using(new FallsInRange<PropertyType>(Range.greater_than(value).inclusive());
+            return create_using(new FallsInRange<PropertyType>(
+                GenericRange<PropertyType>.Make().greater_than(value).lower_inclusive()));
         }
 
         public IMatchAn<ItemToMatch> between(PropertyType start, PropertyType end)
         {
-            return create_using(new FallsInRange<PropertyType>());
+            return create_using(new FallsInRange<PropertyType>(GenericRange<PropertyType>.Make(start, end)));
         }
 
         public IMatchAn<ItemToMatch> equal_to(PropertyType value_to_equal)
