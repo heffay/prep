@@ -199,6 +199,8 @@ namespace prep.specs
                 MyMovie.rating.ShouldEqual(11);
                 GenericRange<int>.Make().greater_than(1).less_than(5).contains(3).ShouldBeTrue();
                 GenericRange<int>.Make().less_than(10).greater_than(1).contains(11).ShouldBeFalse();
+                GenericRange<int>.Make().greater_than(1).less_than(5).upper_inclusive().contains(5).ShouldBeTrue();
+                GenericRange<int>.Make().greater_than(1).less_than(5).upper_exclusive().contains(5).ShouldBeFalse();
                                      };
         }
 
