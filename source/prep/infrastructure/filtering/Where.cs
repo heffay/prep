@@ -7,19 +7,13 @@ namespace prep.infrastructure.filtering
         public static CriteriaFactory<ItemToMatch, PropertyType> has_a<PropertyType>(
             Func<ItemToMatch, PropertyType> accessor)
         {
-            return new CriteriaFactory<ItemToMatch, PropertyType>(
-                accessor,
-                new AnonymousMatchFactory<ItemToMatch>());
+            return new CriteriaFactory<ItemToMatch, PropertyType>(accessor);
         }
 
         public static ComparableCriteriaFactory<ItemToMatch, PropertyType> has_an<PropertyType>(
             Func<ItemToMatch, PropertyType> accessor) where PropertyType : IComparable<PropertyType>
         {
-            var factory = new AnonymousMatchFactory<ItemToMatch>();
-            return new ComparableCriteriaFactory<ItemToMatch, PropertyType>(
-                accessor,
-                new CriteriaFactory<ItemToMatch, PropertyType>(accessor, factory), 
-                factory);
+            return new ComparableCriteriaFactory<ItemToMatch, PropertyType>(accessor, has_a(accessor));
         }
     }
 }

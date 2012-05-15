@@ -66,9 +66,9 @@
     <Compile Include="infrastructure\Criteria.cs" />
     <Compile Include="infrastructure\EnumerableExtensions.cs" />
     <Compile Include="infrastructure\filtering\AnonymousMatch.cs" />
-    <Compile Include="infrastructure\filtering\AnonymousMatchFactory.cs" />
     <Compile Include="infrastructure\filtering\ComparableCriteriaFactory.cs" />
     <Compile Include="infrastructure\filtering\CriteriaFactory.cs" />
+    <Compile Include="infrastructure\filtering\ICreateMatchers.cs" />
     <Compile Include="infrastructure\filtering\IEqualityCriteriaFactory.cs" />
     <Compile Include="infrastructure\filtering\MatchExtensions.cs" />
     <Compile Include="infrastructure\filtering\NeverMatches.cs" />
