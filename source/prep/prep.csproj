@@ -73,6 +73,7 @@
     <Compile Include="infrastructure\filtering\NeverMatches.cs" />
     <Compile Include="infrastructure\filtering\Where.cs" />
     <Compile Include="infrastructure\IMatchAn.cs" />
+    <Compile Include="infrastructure\NotMatch.cs" />
     <Compile Include="infrastructure\OrMatch.cs" />
   </ItemGroup>
   <ItemGroup>

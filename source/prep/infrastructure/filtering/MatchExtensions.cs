@@ -6,5 +6,12 @@
         {
             return new OrMatch<Item>(left, right);
         }
+
+        public static IMatchAn<Item> not<Item>(this IMatchAn<Item> source)
+        {
+            return new NotMatch<Item>(source);
+        }
     }
+
+      
 }
