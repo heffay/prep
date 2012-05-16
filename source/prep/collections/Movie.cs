@@ -21,5 +21,9 @@ namespace prep.collections
 
             return ReferenceEquals(this, other) || this.title == other.title;
         }
+
+        public override string ToString(){
+            return title + " published: " + date_published.ToShortDateString() + " studio rating: " + production_studio.Rating;
+        }
     }
 }

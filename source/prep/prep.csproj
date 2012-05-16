@@ -72,10 +72,6 @@
     <Compile Include="infrastructure\filtering\MatchingExtensionPoint.cs" />
     <Compile Include="infrastructure\filtering\MatchingExtensions.cs" />
     <Compile Include="infrastructure\filtering\IterationExtensionPoint.cs" />
-    <Compile Include="infrastructure\ordering\GenericComparer.cs" />
-    <Compile Include="infrastructure\ordering\IProvideAccessToComparers.cs" />
-    <Compile Include="infrastructure\ordering\OrderBy.cs" />
-    <Compile Include="infrastructure\ordering\StudioRatingsComparer.cs" />
     <Compile Include="infrastructure\Range.cs" />
     <Compile Include="infrastructure\RangeBoundary.cs" />
     <Compile Include="infrastructure\ranges\IContainValues.cs" />
@@ -88,6 +84,12 @@
     <Compile Include="infrastructure\IMatchAn.cs" />
     <Compile Include="infrastructure\NegatingMatch.cs" />
     <Compile Include="infrastructure\OrMatch.cs" />
+    <Compile Include="infrastructure\sorting\By.cs" />
+    <Compile Include="infrastructure\sorting\GenericComparer.cs" />
+    <Compile Include="infrastructure\sorting\IProvideAccessToComparers.cs" />
+    <Compile Include="infrastructure\sorting\OrderBy.cs" />
+    <Compile Include="infrastructure\sorting\SortingExtensionPoint.cs" />
+    <Compile Include="infrastructure\sorting\StudioRatingsComparer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -106,6 +108,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
